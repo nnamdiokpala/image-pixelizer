@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>  Pixelated  Cat Image</title>
-<style>
-    canvas {
-        border: 1px solid black;
-    }
-</style>
-</head>
-<body>
-<canvas id="canvas" width="400" height="300"></canvas>
-<script>
-    // Function to pixelate the image
-    function pixelateImage(image, ctx, pixelSize) {
+# Image Pixelizer
+
+### <u>Simply, Pixelate an Image.</u>
+
+<img title="Unpixelated Kitten" src="./img/kitten_unpixelated.webp" alt="Unpixelated Kitten Image" style="zoom:20%;">
+<img title="Pixelated Kitten" src="./img/kitten_pixelated.png" alt="Pixelated Kitten Image" style="zoom:100%;">
+
+```js
+function pixelateImage(image, ctx, pixelSize) {
         const width = image.width;
         const height = image.height;
         ctx.drawImage(image, 0, 0, width, height);
@@ -54,19 +46,6 @@
         }
         ctx.putImageData(imgData, 0, 0);
     }
+```
 
-    // Main function
-    window.onload = function() {
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        const image = new Image(canvas.width,canvas.height);
 
-        image.src = './img/kitten_unpixelated.webp'; 
-        image.onload = function() {
-            const pixelSize = 20; 
-            pixelateImage(image, ctx, pixelSize);
-        }
-    };
-</script>
-</body>
-</html>
